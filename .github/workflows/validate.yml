@@ -2,9 +2,9 @@ name: Validate
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: sudo apt-get install -y yara
       - run: |
-          output=$(find . -type f -iname "*.yara" -exec yara -w {} \; 2>&1)
+          output=$(find . -type f -iname "*.yara" -exec yara -w {} /dev/null \; 2>&1)
           echo "$output"
           if echo "$output" | grep -q 'syntax error'; then
             echo "syntax error"
