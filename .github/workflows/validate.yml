@@ -10,29 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Cache YARA
-        uses: actions/cache@v2
-        id: cache-yara
-        with:
-          path: "/usr/local/bin/yara"
-          key: ${{ secrets.YARA_VERSION }}
-
-      - name: Install YARA
-        env:
-          CACHE_HIT: ${{ steps.cache-yara.outputs.cache-hit }}
-          YARA_VERSION: ${{ secrets.YARA_VERSION }}
-        run: |
-          if [[ "$CACHE_HIT" == 'true' ]]; then
-            echo "cache found, skipping install"
-          else
-            sudo apt-get install -y yara
-            mkdir -p ~/yara
-            sudo cp /usr/local/bin/yara ~/yara/
-          fi
-
-      - name: Validate YARA
-        run: |
+      - run: sudo apt-get install -y yara
+      - run: |
           output=$(find . -type f -iname "*.yara" -exec yara -w {} /dev/null \; 2>&1)
           if echo "$output" | grep -q 'syntax error'; then
             echo "$output"
