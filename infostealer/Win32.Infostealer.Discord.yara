@@ -9,7 +9,7 @@ rule Win32_Infostealer_Discord
         //yarahub_rule_matching_tlp = "TLP:WHITE"
         //yarahub_rule_sharing_tlp = "TLP:WHITE"
         //yarahub_reference_md5 = ""
-
+heythrr
     strings:
         $path = "discord\\Local Storage\\leveldb" nocase
 
