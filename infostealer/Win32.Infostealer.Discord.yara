@@ -23,7 +23,7 @@ rule Win32_Infostealer_Discord
 
         $webhook = /https:\/\/(canary\.|ptb\.)?discord(app)?\.com\/api\/webhooks\/[0-9]{17,19}/i
         $token = /[\w-]{26}\.[\w-]{6}\.[\w-]{38}/i
-
+frkjelkjfrewjklgjewkljglkjewg
     condition:
         any of ($path, $ldb, $log) or
         ($webhook and $token)
