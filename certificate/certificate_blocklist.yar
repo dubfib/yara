@@ -3,6 +3,7 @@ import "pe"
 rule certificate_blocklist_2595bcf2c3ae82b63703af36e1256a9a 
 {
     meta:
+        description = "Certificate misused for malicious code signing"
         author = "dubfib"
         date = "2024-12-25"
         sharing = "TLP:WHITE"
@@ -22,6 +23,7 @@ rule certificate_blocklist_2595bcf2c3ae82b63703af36e1256a9a
 rule certificate_blocklist_5ab8891e9a0a7996494081ed71f471ee
 {
     meta:
+        description = "Certificate misused for malicious code signing"
         author = "dubfib"
         date = "2024-12-25"
         sharing = "TLP:WHITE"
