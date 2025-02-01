@@ -28,7 +28,7 @@ rule win_dexter_generic {
         $str13 = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Associations" fullword ascii
         $str14 = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\0" fullword ascii
 
-        $op0 = { c7 45 bc 40 34 00 00 c7 45 c0 }
+        $opc0 = { c7 45 bc 40 34 00 00 c7 45 c0 }
         $opc1 = { 31 31 65 32 35 34 30 37 33 39 64 37 66 62 65 61 }
         $opc2 = { 37 31 38 36 33 34 33 61 38 30 63 36 66 61 33 32 }
         $opc3 = { 65 37 64 63 65 38 65 34 36 37 31 66 38 66 30 33 }
@@ -39,5 +39,5 @@ rule win_dexter_generic {
     condition:
         uint16(0) == 0x5A4D and 
         5 of ($str*) and
-        2 of ($op*)
+        2 of ($opc*)
 }
