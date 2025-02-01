@@ -4,7 +4,7 @@ rule win_dexter_generic {
         date = "2025-01-31"
         malpedia_family = "win.dexter"
 
-        yarahub_uuid = "db18d542-40aa-455d-8905-ab955cca2270"
+        yarahub_uuid = "e0113fd5-bd40-483b-891a-094c54cb8c03"
         yarahub_reference_md5 = "7d08306e5a837245c3f343c73535afef"
         yarahub_rule_matching_tlp = "TLP:WHITE"
         yarahub_rule_sharing_tlp = "TLP:WHITE"
