@@ -1,3 +1,9 @@
+/**
+    removed this from yarahub since it flags other types of malware & the rule is too generic
+    it flags stealc malware as well and i want my rules to actually classify pretty strictly
+    the other yara rules in this repo are as good as i can make them. this one isn't really that good
+*/
+
 import "pe"
 
 rule win_lumma_2eabe9054cad5152567f0699947a2c5b {
