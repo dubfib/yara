@@ -1,10 +1,10 @@
 rule win_dexter_generic {
     meta:
         author = "dubfib"
-        date = "2025-01-31"
+        date = "2025-02-08"
         malpedia_family = "win.dexter"
 
-        yarahub_uuid = "e0113fd5-bd40-483b-891a-094c54cb8c03"
+        yarahub_uuid = "6a8945cf-d271-463d-b42d-e6932f3edc8e"
         yarahub_reference_md5 = "7d08306e5a837245c3f343c73535afef"
         yarahub_rule_matching_tlp = "TLP:WHITE"
         yarahub_rule_sharing_tlp = "TLP:WHITE"
@@ -28,16 +28,7 @@ rule win_dexter_generic {
         $str13 = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Associations" fullword ascii
         $str14 = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\0" fullword ascii
 
-        $opc0 = { c7 45 bc 40 34 00 00 c7 45 c0 }
-        $opc1 = { 31 31 65 32 35 34 30 37 33 39 64 37 66 62 65 61 }
-        $opc2 = { 37 31 38 36 33 34 33 61 38 30 63 36 66 61 33 32 }
-        $opc3 = { 65 37 64 63 65 38 65 34 36 37 31 66 38 66 30 33 }
-        $opc4 = { 8b 4d e8 8b 55 f4 2b 51 34 89 55 c8 8b 45 e8 8b }
-        $opc5 = { 8b 55 64 52 ff 15 9c 81 00 00 e9 44 ff ff ff 83 } 
-        $opc6 = { eb 34 8b 55 5c 0f b6 02 50 e8 ?? 0? 00 00 83 c4 }
-
     condition:
-        uint16(0) == 0x5A4D and 
-        5 of ($str*) and
-        2 of ($opc*)
+        uint16(0) == 0x5a4d and 
+        5 of ($str*)
 }
