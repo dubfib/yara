@@ -3,10 +3,10 @@ import "pe"
 rule win_redline_stealer_f34d5f2d4577ed6d9ceec516c1f5a744 {
     meta:
         author = "dubfib"
-        date = "2025-02-01"
+        date = "2025-02-08"
         malpedia_family = "win.redline_stealer"
 
-        yarahub_uuid = "a0fde5b8-800c-485f-b379-11cf985e7ebd"
+        yarahub_uuid = "5f04574d-e2cf-4cbb-b69b-c664cda2b09d"
         yarahub_reference_md5 = "65b74f187c506cf5c1fafde03e60e7df"
         yarahub_rule_matching_tlp = "TLP:WHITE"
         yarahub_rule_sharing_tlp = "TLP:WHITE"
@@ -14,10 +14,6 @@ rule win_redline_stealer_f34d5f2d4577ed6d9ceec516c1f5a744 {
         yarahub_reference_link = "https://github.com/dubfib/yara"
 
     strings:
-        $str0 = "Happy.exe" fullword ascii
-        $str1 = "egram.exe" fullword wide
-        $str2 = "Implosions.exe" fullword wide
-
         $opc0 = {013400000200b50026db000e}
         $opc1 = {020005002c4d00008834010003000200}
         $opc2 = {0600c709c5130600340ac5130600e208}
@@ -45,9 +41,12 @@ rule win_redline_stealer_f34d5f2d4577ed6d9ceec516c1f5a744 {
         $opc24 = {9100e71932053400d83e}
         $opc25 = {ff135900ff8c02ffff2b0713ffffff25}
         $opc26 = {ff367b04fffffff6ff000015ff1707b1}
+        $opc27 = {076f5a00000a3a2bffffffde1507752c}
+        $opc28 = {1204283300000a130500110573340000}
+        $opc29 = {30003100320033003400360038003800}
 
     condition:
         uint16(0) == 0x5a4d and
         pe.imphash() == "f34d5f2d4577ed6d9ceec516c1f5a744" and
-        3 of ($str*) or 3 of ($opc*)
+        3 of ($opc*)
 }
