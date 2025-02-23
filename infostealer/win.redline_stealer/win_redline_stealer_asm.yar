@@ -13,15 +13,12 @@ rule win_redline_stealer_asm {
 
     strings:
         $asm0 = {
-            A0 01 00 4C 05 /* mov al, byte ptr ds:[54C0001] */
-        }
-
-        $asm1 = {
             00 E0 /* add al, ah */
             92 /* xchg edx, eax*/
             01 00 /* add dword ptr ds:[eax], eax */
             4B /* dec ebx */
         }
+        
     condition:
         uint16(0) == 0x5a4d and
         any of ($asm*)
