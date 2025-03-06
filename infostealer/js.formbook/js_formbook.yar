@@ -11,6 +11,13 @@ rule js_formbook {
         yarahub_reference_link = "https://github.com/dubfib/yara"
 
     strings:
+        $js0 = "function(" ascii 
+        $js1 = "function" ascii
+        $js2 = "parseInt" ascii
+        $js3 = "catch" ascii
+        $js4 = "try" ascii
+        $js5 = "var" ascii
+
         $str0 = "Status" ascii
         $str1 = "PowerShell\\x20-NoProfile\\x20-ExecutionPolicy\\x20RemoteSigned\\x20-File\\x20" ascii
         $str2 = "Scripting.FileSystemObject" ascii
@@ -25,5 +32,5 @@ rule js_formbook {
         $str11 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=" ascii
 
     condition:
-        filesize < 15KB and 6 of ($str*)
+        filesize < 15KB and any of ($js*) and 6 of ($str*)
 }
