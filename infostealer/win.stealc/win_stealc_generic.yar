@@ -4,7 +4,7 @@ rule win_stealc_generic {
         date = "2025-03-08"
         malpedia_family = "win.stealc"
 
-        yarahub_uuid = "9e7cc8d1-ec37-4cd3-adda-7b86ce00fe48"
+        yarahub_uuid = "8b4c19dc-7dce-4327-b2b4-feefcac2c3ca"
         yarahub_reference_md5 = "f0ad59c5e3eb8da5cbbf9c731371941c"
         yarahub_rule_matching_tlp = "TLP:WHITE"
         yarahub_rule_sharing_tlp = "TLP:WHITE"
@@ -26,7 +26,7 @@ rule win_stealc_generic {
             67 EA D8 87 64 EA D9 87 /* jmp far 87D9:EA6487D8 */
             09 EA                   /* or edx, ebp */
             D8 87 0B 9C 77 87       /* fadd dword ptr ds:[edi-788863F5] */
-            77 EA                   /* ja [??] */
+            77 ??                   /* ja [??] */
             D8 87 0B 9C 45 87       /* fadd dword ptr ds:[edi-78BA63F5] */
             65 EA D8 87 52 69 63 68 /* jmp far 6863:695287D8 */
             64 EA D8 87 00 00 00 00 /* jmp far 0:87D8 */
